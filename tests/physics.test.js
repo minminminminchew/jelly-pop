@@ -1,0 +1,5 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {connected,detached,aimVector,nearestSlot} from '../dist/physics.js';
+test('same-color match traverses a touching cluster but does not cross another color',()=>{const b=[{x:0,y:0,color:1},{x:20,y:0,color:1},{x:40,y:0,color:1},{x:60,y:0,color:2},{x:80,y:0,color:1}];assert.equal(connected(b[0],b,10,true).length,3)});
+test('cutting a bridge drops every unanchored branch',()=>{const b=[{x:0,y:10},{x:0,y:30},{x:0,y:50},{x:20,y:50}];assert.equal(detached(b,10,10).length,0);assert.equal(detached([b[0],b[2],b[3]],10,10).length,2)});
+test('snapping finds a vacant touching cell inside walls',()=>{const b=[{x:30,y:10}];const p=nearestSlot(30,29,b,10,10,90,10);assert.ok(p);assert.ok(Math.abs(Math.hypot(p.x-30,p.y-10)-20)<.001);assert.ok(p.y>10);assert.ok(p.x>=10&&p.x<=90)});
+test('aim always travels upward, including pointer below launcher',()=>{for(const [x,y] of [[0,10],[100,1000],[-100,50]]){const v=aimVector(x,y,{x:0,y:0});assert.ok(v.y<0);assert.ok(Math.abs(Math.hypot(v.x,v.y)-1)<1e-10)}});
