@@ -20,3 +20,7 @@ Sixth bubble type: a clear traditional glass marble with a tapered, twisted blue
 
 Natural-field update: a continuous board with irregular, locally correlated color regions and an uneven lower edge; no preset hanging pods or necks. Shot colors generally favor reachable matches without weighting predicted jackpot size. The previewed next color is preserved while it remains on the board. Detached bubbles fall all the way out. Five consecutive misses advance the board; successful matches reset misses.
 Tests: node --test tests/*.test.js
+
+GitHub Pages: https://minminminminchew.github.io/jelly-pop/
+Share this main URL in a regular X post. Its HTML includes a Player Card for @happycapyai, pointing at https://minminminminchew.github.io/jelly-pop/embed/. Inline playback depends on the X client and card availability. The embed also works as a standalone page.
+Push to main to run tests and deploy dist/ through GitHub Actions.
